@@ -1,6 +1,6 @@
 PGraphics canvas;
-int canvas_width = 5100/8;
-int canvas_height = 5100/8;
+int canvas_width = 5100 / 3;
+int canvas_height = 5100 / 3;
 
 float ratioWidth = 1;
 float ratioHeight = 1;
@@ -14,10 +14,14 @@ void setup() {
   frameRate(10);
   canvas = createGraphics(canvas_width, canvas_height);
   calculateResizeRatio();
+  
+  canvas.beginDraw();
+  canvas.colorMode(HSB, 100);
+  canvas.endDraw();
 }
 
 void draw() {
-  canvas.colorMode(HSB, 100);
+  
   canvas.beginDraw();
   if (mousePressed) {
     float abstand = dist (pmouseX, pmouseY, mouseX, mouseY);
@@ -28,8 +32,9 @@ void draw() {
     thickness/=ratio;
     canvas.strokeWeight (thickness);
     canvas.line (pmouseX /ratio, pmouseY /ratio, mouseX /ratio, mouseY /ratio);
+    
     canvas.filter(DILATE);
-    canvas.filter(BLUR);
+    canvas.filter(BLUR);     
   }
 
 

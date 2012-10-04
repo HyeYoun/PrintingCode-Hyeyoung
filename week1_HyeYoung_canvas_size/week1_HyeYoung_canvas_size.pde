@@ -8,12 +8,10 @@ float ratio_hei = 1;
 float ratio = 1;
 
 int rad = 1200;
-//float rad = canvas.height*0.5;
-
 
 
 void setup() {
-  size(600, 600);
+  size(800, 600);
   background(100);
 
   canvas = createGraphics(canvas_wid, canvas_hei, P2D);
